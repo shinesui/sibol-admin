@@ -1,11 +1,39 @@
-import { ProvideAuth } from "../lib/auth";
+import { CSSReset, ThemeProvider } from "@chakra-ui/react";
+import { Global, css } from "@emotion/react";
+import { AuthProvider } from "lib/auth";
+import customTheme from "styles/theme";
 
-function MyApp({ Component, pageProps }) {
-  return ( 
-    <ProvideAuth>
-      <Component {...pageProps} />
-    </ProvideAuth>
+const GlobalStyle = ({ children }) => {
+  return (
+    <>
+      <CSSReset />
+      <Global
+        styles={css`
+          html {
+            min-width: 360px;
+            scroll-behavior: smooth;
+          }
+          #__next {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+          }
+        `}
+      />
+      {children}
+    </>
   );
-}
+};
 
-export default MyApp;
+function App({ Component, pageProps }) {
+  return ( 
+    <ThemeProvider theme={customTheme}>
+      <AuthProvider>
+        <CSSReset />
+        <Component {...pageProps} />
+      </AuthProvider>
+    </ThemeProvider>
+  );
+};
+
+export default App;
