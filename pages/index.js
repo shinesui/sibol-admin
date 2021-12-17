@@ -1,8 +1,8 @@
 import { getAuth } from 'firebase/auth'
 import Head from 'next/head'
 import Image from 'next/image'
-import { useAuth } from 'lib/auth'
-import styles from 'styles/Home.module.css'
+import { useAuth } from '/lib/auth'
+import styles from '../styles/Home.module.css'
 import { Button, ButtonGroup, Code, Heading, Text } from '@chakra-ui/react'
 
 export default function Home () {
