@@ -6,7 +6,8 @@ export default async (_, res) => {
 
   snapshot.forEach((doc) => {
     sites.push({ id: doc.id, ...doc.data() });
+    res.statusCode = 200;
   });
 
-  res.status(200).json({ sites });
+  res.status(405).json({ sites });
 };
