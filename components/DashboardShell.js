@@ -48,7 +48,7 @@ const DashboardShell = ({ children }) => {
             )}
             <Avatar size="sm"
             display="inline-block" src={user?.photoUrl} />
-            <div class="break"></div>
+            <div className="break"></div>
             <Text>
                 Current user: <Code>{user ? user.name : 'None'}</Code>
             </Text>
